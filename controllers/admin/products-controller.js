@@ -156,8 +156,8 @@ const deleteProduct = async (req, res) => {
 
 module.exports = {
   handleImageUpload,
-  // addProduct,
-  // fetchAllProducts,
-  // editProduct,
-  // deleteProduct,
+  addProduct,
+  fetchAllProducts,
+  editProduct,
+  deleteProduct,
 };

@@ -25,9 +25,13 @@ const createOrder = async (req, res) => {
       payer: {
         payment_method: "paypal",
       },
+      // redirect_urls: {
+      //   return_url: `${process.env.CLIENT_BASE_URL}/e-commerce-front/shop/paypal-return`,
+      //   cancel_url: `${process.env.CLIENT_BASE_URL}/e-commerce-front/shop/paypal-cancel`,
+      // },
       redirect_urls: {
-        return_url: "http://localhost:5173/e-commerce-front/shop/paypal-return",
-        cancel_url: "http://localhost:5173/e-commerce-front/shop/paypal-cancel",
+        return_url: `${process.env.CLIENT_BASE_URL}/shop/paypal-return`,
+        cancel_url: `${process.env.CLIENT_BASE_URL}/shop/paypal-cancel`,
       },
       transactions: [
         {

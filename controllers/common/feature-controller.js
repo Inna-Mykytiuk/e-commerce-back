@@ -2,19 +2,20 @@ const Feature = require("../../models/Feature");
 
 const addFeatureImage = async (req, res) => {
   try {
-    const { image } = req.body;
+    const { image, title } = req.body;
 
-    console.log(image, "image");
+    console.log(image, title, "data");
 
-    const featureImages = new Feature({
+    const feature = new Feature({
       image,
+      title,
     });
 
-    await featureImages.save();
+    await feature.save();
 
     res.status(201).json({
       success: true,
-      data: featureImages,
+      data: feature,
     });
   } catch (e) {
     console.log(e);
@@ -27,17 +28,17 @@ const addFeatureImage = async (req, res) => {
 
 const getFeatureImages = async (req, res) => {
   try {
-    const images = await Feature.find({});
+    const features = await Feature.find({});
 
     res.status(200).json({
       success: true,
-      data: images,
+      data: features,
     });
   } catch (e) {
     console.log(e);
     res.status(500).json({
       success: false,
-      message: "Some error occured!",
+      message: "Some error occurred!",
     });
   }
 };
